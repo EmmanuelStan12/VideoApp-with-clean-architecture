@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:id="@+id/details_section"
+    android:layout_below="@id/user_section">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/likes_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_section"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/video_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            tools:text="160"
+            android:textColor="@color/dark_grey"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/video_likes"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/likes"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/dark_grey"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/view_section"
+        app:layout_constraintEnd_toStartOf="@id/comments_section"
+        app:layout_constraintStart_toEndOf="@id/likes_section"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/video_views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            tools:text="160"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/dark_grey"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/views"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/video_views"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/views"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/dark_grey"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/comments_section"
+        app:layout_constraintStart_toEndOf="@id/view_section"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/video_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            tools:text="160"
+            android:textColor="@color/dark_grey"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/comments"
+            android:textColor="@color/dark_grey"
+            android:layout_marginStart="10dp"
+            android:textSize="17sp"
+            android:layout_below="@id/video_comments"
+            />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

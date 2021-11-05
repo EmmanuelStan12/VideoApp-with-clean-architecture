@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/dark_grey">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/empty_list_text"
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/no_results_found_for_your_search"
+        android:textColor="@color/text_white"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="19sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/text_white"
+        android:id="@+id/internet_section"
+        android:gravity="center"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_no_internet"
+            android:contentDescription="@string/internet_connection"
+            android:id="@+id/image_wifi"/>
+
+        <TextView
+            android:id="@+id/internet_details"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="No Internet Connection"
+            android:textColor="@color/dark_grey"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_video_duration"
+        android:id="@+id/search_input_field"
+        app:layout_constraintTop_toBottomOf="@id/internet_section"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:padding="9dp"
+        android:hint="@string/search"
+        android:fontFamily="@font/montserrat"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="5dp"
+        android:textColor="@color/text_white"
+        android:textColorHint="@color/text_white"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_input_field"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/search_recycler_view"
+        tools:listitem="@layout/layout_search_video"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/load_state_section"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/text_white"
+            android:id="@+id/progress_bar"/>
+
+        <TextView
+            android:id="@+id/progress_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/text_white"
+            android:fontFamily="@font/montserrat"
+            tools:text="Error" />
+
+        <RelativeLayout
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_error_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_ripple"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/verify_button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/retry"
+                android:textColor="@color/text_white"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

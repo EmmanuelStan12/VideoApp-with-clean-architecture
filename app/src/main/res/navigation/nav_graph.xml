@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchVideoFragment">
+
+    <fragment
+        android:id="@+id/searchVideoFragment"
+        android:name="com.codedev.videoapplication.ui.feature_search_video.SearchVideoFragment"
+        android:label="SearchVideoFragment" >
+        <action
+            android:id="@+id/action_searchVideoFragment_to_videoActivity"
+            app:destination="@id/videoActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/videoActivity"
+        android:name="com.codedev.videoapplication.ui.feature_get_video.VideoActivity"
+        android:label="activity_video"
+        tools:layout="@layout/activity_video" >
+        <argument
+            android:name="hit"
+            app:argType="com.codedev.videoapplication.data.models.Hit" />
+    </activity>
+</navigation>

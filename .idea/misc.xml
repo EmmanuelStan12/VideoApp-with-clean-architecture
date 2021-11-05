@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/background_player_circle.xml" value="0.2203125" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/background_video_info.xml" value="0.5" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/bg_description.xml" value="0.2203125" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/button_ripple.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/ic_internet.xml" value="0.2203125" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/ic_no_internet.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/drawable/ic_search.xml" value="0.3351851851851852" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout-land/activity_video.xml" value="0.1859375" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/activity_video.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/background_video_duration.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/fragment_search_video.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/layout_custom_controller.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/layout_load_state.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/layout_search_video.xml" value="0.25" />
+        <entry key="..\:/Users/User/Documents/Projects/AndroidStudioProjects/VideoApplication/app/src/main/res/layout/layout_video_details.xml" value="0.25092592592592594" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
