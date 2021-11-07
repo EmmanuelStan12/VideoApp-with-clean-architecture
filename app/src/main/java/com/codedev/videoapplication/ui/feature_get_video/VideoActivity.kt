@@ -32,6 +32,8 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.util.Util
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val TAG = "VideoActivity"
+
 @AndroidEntryPoint
 class VideoActivity : AppCompatActivity() {
 
@@ -90,9 +92,6 @@ class VideoActivity : AppCompatActivity() {
             videoTitle?.text = hit.type
             username?.text = hit.user
             textError?.isVisible = false
-            textError?.setOnClickListener {
-                playVideo()
-            }
             videoDetailsSection?.apply {
                 videoComments.text = hit.comments.toString()
                 videoLikes.text = hit.likes.toString()
@@ -141,9 +140,10 @@ class VideoActivity : AppCompatActivity() {
 
         player?.addListener(
             idle = {
-                binding.progressBar.isVisible = true
-                binding.videoImage?.isVisible = true
-                binding.textError?.isVisible = false
+                binding.progressBar.isVisible = false
+                binding.videoImage?.isVisible = false
+                binding.textError?.isVisible = true
+                Log.d(TAG, "initializePlayer: ${binding.textError?.text} hello")
             },
             buffering = {
                 binding.progressBar.isVisible = true
@@ -156,6 +156,14 @@ class VideoActivity : AppCompatActivity() {
             },
             onListen = {
                 listener = it
+            },
+            error = { error ->
+                binding.progressBar.isVisible = false
+                binding.videoImage?.isVisible = false
+                binding.textError?.let {
+                    it.isVisible = true
+                    it.text = StringBuilder().append(error).append(" Click to Try again")
+                }
             }
         )
         playVideo()
@@ -167,21 +175,14 @@ class VideoActivity : AppCompatActivity() {
         val uri = Uri.parse(media)
         val mediaItem = MediaItem.fromUri(uri)
         val state = viewModel.state.value
-        try {
-            player?.let { exoPlayer ->
-                exoPlayer.playWhenReady = state.playWhenReady
-                exoPlayer.setMediaItem(mediaItem)
-                exoPlayer.seekTo(
-                    state.currentWindow,
-                    state.playbackPosition
-                )
-                exoPlayer.prepare()
-            }
-        } catch(e: Exception) {
-            binding.textError?.isVisible = true
-            binding.textError?.text = StringBuilder().append(e.message).append("Click to Try again")
-            binding.progressBar.isVisible = false
-            binding.videoImage?.isVisible = false
+        player?.let { exoPlayer ->
+            exoPlayer.playWhenReady = state.playWhenReady
+            exoPlayer.setMediaItem(mediaItem)
+            exoPlayer.seekTo(
+                state.currentWindow,
+                state.playbackPosition
+            )
+            exoPlayer.prepare()
         }
     }
 

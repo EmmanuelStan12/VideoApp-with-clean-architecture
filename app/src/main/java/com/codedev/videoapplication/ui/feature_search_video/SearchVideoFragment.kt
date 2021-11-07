@@ -2,6 +2,7 @@ package com.codedev.videoapplication.ui.feature_search_video
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -43,11 +44,16 @@ class SearchVideoFragment : Fragment(R.layout.fragment_search_video) {
 
         linearLayoutManager = LinearLayoutManager(requireContext())
 
-        binding.searchInputField.onChange {
-            job?.cancel()
-            job = CoroutineScope(Dispatchers.IO).launch {
-                delay(2500L)
-                viewModel.accept(SearchVideoEvents.Search(it))
+        binding.searchInputField.setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when(actionId) {
+                EditorInfo.IME_ACTION_SEARCH -> {
+                    job?.cancel()
+                    job = CoroutineScope(Dispatchers.IO).launch {
+                        viewModel.accept(SearchVideoEvents.Search(binding.searchInputField.text.toString()))
+                    }
+                    true
+                }
+                else -> false
             }
         }
 

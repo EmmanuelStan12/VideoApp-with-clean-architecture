@@ -3,17 +3,22 @@ package com.codedev.videoapplication.ui.feature_get_video.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.widget.TextView
+import com.google.android.exoplayer2.PlaybackException
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.Player.STATE_READY
 import com.google.android.exoplayer2.SimpleExoPlayer
+
+private const val TAG = "ExtensionFunctions"
 
 fun SimpleExoPlayer.addListener(
     ready: () -> Unit = {},
     buffering: () -> Unit = {},
     ended: () -> Unit = {},
     idle: () -> Unit = {},
-    onListen: (Player.Listener) -> Unit
+    onListen: (Player.Listener) -> Unit,
+    error: (String) -> Unit
 ) {
     val listener = object: Player.Listener {
         override fun onPlaybackStateChanged(playbackState: Int) {
@@ -32,7 +37,13 @@ fun SimpleExoPlayer.addListener(
                 }
             }
         }
+
+        override fun onPlayerError(error: PlaybackException) {
+            Log.d(TAG, "onPlayerError: ${error.toString()}")
+            error(error.message.toString())
+        }
     }
+    
     onListen(listener)
     this.addListener(listener)
 }

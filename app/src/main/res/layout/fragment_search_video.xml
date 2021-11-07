@@ -59,12 +59,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
         android:padding="9dp"
+        android:inputType="text"
         android:hint="@string/search"
         android:fontFamily="@font/montserrat"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="5dp"
         android:textColor="@color/text_white"
-        android:textColorHint="@color/text_white"/>
+        android:textColorHint="@color/text_white"
+        android:imeOptions="actionSearch"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
